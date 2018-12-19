@@ -1,25 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterModule } from './register';
-import { LoginModule } from './login';
+import { CommonModule } from '@angular/common';
 
-
-const ROUTES: Routes = [{
+export const ROUTES: Routes = [{
     path: 'auth',
-    // component: ''
     children: [
         { path: '', redirectTo: '', pathMatch: 'full' },
         { path: 'login', loadChildren: './login/login.module#LoginModule' },
-        { path: 'register', loadChildren: './register/register.module#RegisterModule' },
+        { path: 'register', loadChildren: './register/register.module#RegisterModule' }
     ]
 }]
 
 @NgModule({
     imports: [
-        RouterModule
+        CommonModule,
+        RouterModule.forChild(ROUTES)
     ],
-    declarations: [
-
+    exports: [
+        RouterModule
     ]
 })
 
