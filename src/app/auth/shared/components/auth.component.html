@@ -1,5 +1,19 @@
-<form [formGroup]="authForm" (ngSubmit)="onSubmit()">
-    <input type="text"  formControlName="name" placeholder="Enter your name">
+<form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth-form">
+    <ng-content select="h1"></ng-content>
+
     <input type="email" formControlName="email" placeholder="Enter your email">
-    <button type="submit">Send</button>
+    <input type="password" formControlName="password" placeholder="Enter your password">
+
+    <div class="auth-form__action error" *ngIf="emailValidation">
+        Email is required
+    </div>
+
+    <div class="auth-form__action error" *ngIf="passwordValidation">
+        Password validation
+    </div>
+
+    <ng-content select="button"></ng-content>
+    <div class="auth-form__toggle">
+        <ng-content select="a"></ng-content>
+    </div>
 </form>

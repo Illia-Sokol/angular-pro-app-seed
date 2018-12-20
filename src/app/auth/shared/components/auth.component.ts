@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,14 +8,30 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 
 export class FlAuthComponent {
+    @Output()
+    public submitted = new EventEmitter<FormGroup>();
+
     public authForm: FormGroup = this.fb.group({
-        name: [''],
-        email: ['', Validators.required ]
+        email: ['', [
+            Validators.required,
+            Validators.email
+        ] ],
+        password: [ '', Validators.required ]
     })
+
+    public get passwordValidation() {
+        const control = this.authForm.get('password');
+        return control.hasError('required') && control.touched;
+    }
+    
+    public get emailValidation() {
+        const control = this.authForm.get('email');
+        return control.hasError('email') && control.touched;
+    }
 
     constructor(private fb: FormBuilder) {}
 
     public onSubmit() {
-        console.log('submit');
+        this.submitted.emit(this.authForm);
     }
 }

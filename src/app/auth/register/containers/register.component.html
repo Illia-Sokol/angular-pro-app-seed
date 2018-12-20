@@ -1,2 +1,5 @@
-<h1>REGISTER</h1>
-<!-- <fl-auth></fl-auth> -->
+<fl-auth (submitted)="onSubmit($event)">
+    <h1>Register</h1>
+    <button type="submit">Register</button>
+    <a routerLink="/auth/login">Already registred?</a>
+</fl-auth>

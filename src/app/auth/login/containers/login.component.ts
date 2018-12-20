@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'fl-login',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./login.component.scss']
 })
 
-export class FlLoginComponent {}
+export class FlLoginComponent {
+    public onSubmit(form: FormGroup) {
+        console.log('login', form.value);
+    }
+}
