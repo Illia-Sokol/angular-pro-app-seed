@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { AuthService } from '../../shared/sevice/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'fl-login',
@@ -8,7 +10,21 @@ import { FormGroup } from '@angular/forms';
 })
 
 export class FlLoginComponent {
-    public onSubmit(form: FormGroup) {
-        console.log('login', form.value);
+    public error: string;
+
+    constructor(
+        private authservice: AuthService,
+        private router: Router
+        ) {}
+
+    public async login(form: FormGroup) {
+        const { email, password } = form.value;
+        try {
+            await this.authservice.loginUser(email, password);
+            // this.router.navigate(['/']);
+        } catch (err) {
+            this.error = err.message;
+        }
     }
+    
 }

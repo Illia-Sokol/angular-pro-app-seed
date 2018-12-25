@@ -4,11 +4,13 @@
     <input type="email" formControlName="email" placeholder="Enter your email">
     <input type="password" formControlName="password" placeholder="Enter your password">
 
-    <div class="auth-form__action error" *ngIf="emailValidation">
+    <ng-content select=".error"></ng-content>
+
+    <div class="auth-form__action" *ngIf="emailValidation">
         Email is required
     </div>
 
-    <div class="auth-form__action error" *ngIf="passwordValidation">
+    <div class="auth-form__action" *ngIf="passwordValidation">
         Password validation
     </div>
 

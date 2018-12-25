@@ -1,5 +1,6 @@
 :host ::ng-deep {
-    .error {
+    .error,
+    .auth-form__action {
       color: #a94442;
       background: #f2dede;
       border: 1px solid #e4b3b3;
