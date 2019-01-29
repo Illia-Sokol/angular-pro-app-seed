@@ -21,8 +21,9 @@ export class FlRegisterComponent {
         const { email, password } = form.value;
         try {
             await this.authService.createUser(email, password);
-            // this.router.navigate(['/']);
+            this.router.navigate(['/']);
         } catch (err) {
+            console.log('sokol');
             this.error = err.message;
         }
     }
