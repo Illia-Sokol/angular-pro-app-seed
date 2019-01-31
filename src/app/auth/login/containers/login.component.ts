@@ -21,7 +21,7 @@ export class FlLoginComponent {
         const { email, password } = form.value;
         try {
             await this.authservice.loginUser(email, password);
-            // this.router.navigate(['/']);
+            this.router.navigate(['/']);
         } catch (err) {
             this.error = err.message;
         }

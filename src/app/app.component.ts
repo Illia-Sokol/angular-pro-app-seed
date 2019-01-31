@@ -3,6 +3,7 @@ import { AuthService, User } from './auth/shared/sevice/auth.service';
 
 import { Observable, Subscription } from 'rxjs';
 import { Store } from './store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private authService: AuthService,
-    private store: Store
+    private store: Store,
+    private router: Router
   ) {}
 
   public ngOnInit() {
@@ -25,5 +27,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  public onLogOut() {
+    this.authService.logOutUser();
+    this.router.navigate(['/auth/login']);
   }
 }

@@ -41,4 +41,8 @@ export class AuthService {
         return this.af.auth
             .signInWithEmailAndPassword(email, password);
     }
+
+    logOutUser() {
+       return this.af.auth.signOut();
+    }
 }
