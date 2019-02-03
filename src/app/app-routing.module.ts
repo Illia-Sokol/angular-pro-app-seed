@@ -4,7 +4,9 @@ import { AuthModule } from './auth/auth.module';
 import { HealsModule } from './healt/healt.module';
 import { CommonModule } from '@angular/common';
 
-const ROUTES: Routes = [];
+const ROUTES: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'shedule' }
+];
 
 @NgModule({
   imports: [

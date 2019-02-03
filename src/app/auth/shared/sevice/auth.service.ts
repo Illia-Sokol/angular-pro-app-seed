@@ -26,6 +26,10 @@ export class AuthService {
             }
             this.store.set('user', user);
          }) )
+    
+    public get authState() {
+        return this.af.authState;
+    }
 
     constructor(
         private store: Store,
