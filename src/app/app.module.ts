@@ -6,7 +6,6 @@ import { Store } from './store';
 import { AppHeaderComponent } from './components/app-header';
 import { AppNavComponent } from './components/app-nav';
 
-
 @NgModule({
   declarations: [
     AppComponent,
