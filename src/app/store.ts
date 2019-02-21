@@ -4,14 +4,17 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { distinctUntilChanged, pluck } from 'rxjs/operators'
  
 import { User } from './auth/shared/sevice/auth.service';
+import { Meal } from './healt/shared/meals/meals.service';
 
 export interface State {
     user: User;
     [key: string]: any;
+    meals: Meal;
 }
 
 const state: State = {
-    user: undefined
+    user: undefined,
+    meals: undefined
 };
 
 @Injectable()

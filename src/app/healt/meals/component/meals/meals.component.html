@@ -1,1 +1,12 @@
 Meals
+<!-- <app-meal></app-meal> -->
+<div>You Meal</div>
+<div>New Meal</div>
+<div [routerLink]="['../meals/new']">Create new meal</div>
+<div *ngIf="meal$ | async as meals; else elseBlock;">
+    <div *ngIf="!meals.length">
+        {{meals}}
+        No meal, add meal to start
+    </div>
+</div>
+<ng-template #elseBlock>Fetching meals</ng-template>
