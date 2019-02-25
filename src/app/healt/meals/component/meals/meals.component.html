@@ -5,8 +5,8 @@
 </div>
 <div *ngIf="meals$ | async as meals; else elseBlock;">
     <div *ngIf="!meals.length">
-        {{meals}}
         No meal, add meal to start
     </div>
+    <app-item-list [meals]="meals"></app-item-list>
 </div>
 <ng-template #elseBlock>Fetching meals</ng-template>

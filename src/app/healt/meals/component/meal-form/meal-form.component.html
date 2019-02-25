@@ -1,7 +1,7 @@
 <form [formGroup]="form" class="meal-form">
     <div class="add-food">
         <div>Meal Name</div>
-        <input formControlName="name" type="text" required>
+        <input formControlName="name" type="text" placeholder="Enter meal name" required>
         <div *ngIf="required">field is requiered</div>
     </div>
     <div class="ingridient-block" formArrayName="ingridients">
@@ -11,7 +11,7 @@
             </button>
         </div>
         <div *ngFor="let ingridient of ingridients.controls; index as i" class="ingridients">
-            <input [formControlName]="i" type="text">
+            <input [formControlName]="i" type="text" placeholder="Enter ingridient">
             <div class="delete" (click)="removeIngridient(i)">X</div>
         </div>
     </div>

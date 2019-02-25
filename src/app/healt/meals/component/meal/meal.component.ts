@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Observable, Subscription } from 'rxjs';
+import { Component } from "@angular/core";
 import { Meal, MealsService } from 'src/app/healt/shared/meals/meals.service';
-import { Store } from '../../../../store';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-meal',
@@ -10,7 +9,13 @@ import { Store } from '../../../../store';
 })
 
 export class AppMealComponent {
-    public created(event) {
-        console.log('create', event);
+    public async created(event: Meal) {
+        await this.mealsService.addMeal(event);
+        this.router.navigate(['/meals']);
     }
+
+    constructor(
+        private mealsService: MealsService,
+        private router: Router
+    ) {}
 }
