@@ -1,0 +1,15 @@
+.nav-meal {
+    display: flex;
+
+    > div {
+        padding: 16px;
+        margin: 8px 16px;
+        background: #efefef;
+        border: 1px solid #ddd;
+        cursor: pointer;
+
+        &:hover {
+            background: #ddd;
+        }
+    }
+}

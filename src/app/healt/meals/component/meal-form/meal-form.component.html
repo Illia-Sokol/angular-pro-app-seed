@@ -1,0 +1,21 @@
+<form [formGroup]="form" class="meal-form">
+    <div class="add-food">
+        <div>Meal Name</div>
+        <input formControlName="name" type="text" required>
+        <div *ngIf="required">field is requiered</div>
+    </div>
+    <div class="ingridient-block" formArrayName="ingridients">
+        <div>Food
+            <button type="button" (click)="addMeal()">
+                add meals
+            </button>
+        </div>
+        <div *ngFor="let ingridient of ingridients.controls; index as i" class="ingridients">
+            <input [formControlName]="i" type="text">
+            <div class="delete" (click)="removeIngridient(i)">X</div>
+        </div>
+    </div>
+
+    <button type="submit" (click)="onSubmit()">Create Meal</button>
+    <a [routerLink]="['../']">Cancel</a>
+</form>

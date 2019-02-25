@@ -20,8 +20,6 @@ export class AppMealsComponent implements OnInit, OnDestroy {
 
     public ngOnInit() {
         this.meals$ = this.store.select<Meal[]>('meals');
-        console.log(this.meals$);
-        setTimeout( () => console.log(this.meals$), 3000);
         this.subsctiption = this.mealsService.meals$.subscribe();
     }
 

@@ -10,20 +10,7 @@ import { Store } from '../../../../store';
 })
 
 export class AppMealComponent {
-    // public meals$: Observable<Meal[]>;
-    // public subsctiption: Subscription;
-
-    // constructor(
-    //     private mealsService: MealsService,
-    //     private store: Store
-    // ) {}
-
-    // public ngOnInit() {
-    //     this.subsctiption = this.mealsService.meals$.subscribe();
-    //     this.meals$ = this.store.select<Meal[]>('meals');
-    // }
-
-    // public ngOnDestroy() {
-    //     this.subsctiption.unsubscribe();
-    // }
+    public created(event) {
+        console.log('create', event);
+    }
 }
