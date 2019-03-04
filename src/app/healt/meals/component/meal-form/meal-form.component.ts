@@ -15,7 +15,7 @@ export class AppFormMealComponent {
     })
 
     @Output()
-    public create: EventEmitter<Meal> = new EventEmitter<Meal>();
+    public create = new EventEmitter<Meal>();
 
     constructor(
         private fb: FormBuilder
@@ -31,7 +31,7 @@ export class AppFormMealComponent {
     }
 
     public addMeal() {
-        this.ingridients.push(new FormControl());
+        this.ingridients.push(new FormControl(''));
     }
 
     public removeIngridient(index: number) {

@@ -18,4 +18,13 @@ export class AppMealComponent {
         private mealsService: MealsService,
         private router: Router
     ) {}
+
+    async addMeal(event: Meal) {
+        await this.mealsService.addMeal(event);
+        this.backToMeals();
+    }
+    
+    public backToMeals() {
+        this.router.navigate(['meals']);
+    }
 }

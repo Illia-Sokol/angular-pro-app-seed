@@ -1,3 +1,10 @@
-<div>
-    {{meals | json}}
+<div [routerLink]="getRouter(item)">
+    <div>{{item.name}}</div>
+    <div>{{item.ingridients}}</div>
 </div>
+<div *ngIf="toggled">
+    <div>Are you sure?</div>
+    <button (click)="toggle()">No</button>
+    <button (click)="removeItem()">Yes</button>
+</div>
+<div class="remove" (click)="toggle()">Remove</div>

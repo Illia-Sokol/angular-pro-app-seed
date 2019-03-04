@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { AngularFireDatabaseModule } from '@angular/fire/database'
 import { MealsService } from './meals/meals.service';
 import { AppItemListComponent } from './component/item-list.component';
+import { RouterModule } from '@angular/router';
  
 
 @NgModule({
     imports: [
         CommonModule,
-        AngularFireDatabaseModule
+        AngularFireDatabaseModule,
+        RouterModule
     ],
     declarations: [
         AppItemListComponent

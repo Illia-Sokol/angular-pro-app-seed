@@ -10,7 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const ROUTES: Routes = [
     { path: '', component: AppMealsComponent },
-    { path: 'new', component: AppMealComponent }
+    { path: 'new', component: AppMealComponent },
+    { path: ':id', component: AppMealComponent }
 ]
 
 @NgModule({
@@ -29,4 +30,4 @@ const ROUTES: Routes = [
         AppMealsComponent
     ]
 })
-export class MealsModule {}
+export class MealsModule { }

@@ -7,6 +7,7 @@
     <div *ngIf="!meals.length">
         No meal, add meal to start
     </div>
-    <app-item-list [meals]="meals"></app-item-list>
+    <!-- {{meals | json}} -->
+    <app-item-list *ngFor="let meal of meals" [item]="meal" (remove)="removeMeal($event)"></app-item-list>
 </div>
 <ng-template #elseBlock>Fetching meals</ng-template>

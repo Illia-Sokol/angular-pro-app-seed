@@ -11,7 +11,6 @@ import { AppNavComponent } from './components/app-nav';
     AppComponent,
     AppHeaderComponent,
     AppNavComponent
-    // Store
   ],
   imports: [
     BrowserModule,
